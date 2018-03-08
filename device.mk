@@ -320,6 +320,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.crda.sh \
+    init.goodix.sh \
     init.mdm.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
