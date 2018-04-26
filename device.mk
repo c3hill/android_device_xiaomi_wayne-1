@@ -131,6 +131,10 @@ PRODUCT_PACKAGES += \
     com.dsi.ant.antradio_library \
     libantradio
 
+# Biometrics
+PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint@2.1-service.xiaomi_wayne
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor
