@@ -174,11 +174,11 @@ on boot
     chmod 0770 /sys/class/power_supply/battery/device/thermalcall
     chown system system /sys/class/power_supply/battery/device/thermalcall
 
-    mkdir /persist/drm 0770 system system
-    mkdir /persist/bluetooth 0770 bluetooth bluetooth
-    mkdir /persist/misc 0770 system system
+    mkdir /mnt/vendor/persist/drm 0770 system system
+    mkdir /mnt/vendor/persist/bluetooth 0770 bluetooth bluetooth
+    mkdir /mnt/vendor/persist/misc 0770 system system
     mkdir /mnt/vendor/persist/alarm 0770 system system
-    mkdir /persist/time 0770 system system
+    mkdir /mnt/vendor/persist/time 0770 system system
     mkdir /mnt/vendor/persist/secnvm 0770 system system
 
     #Create NETMGR daemon socket area
@@ -267,7 +267,7 @@ on boot
     chown system system /sys/class/sensors/apds9930-proximity/poll_delay
 
     # Create directory used for display
-    mkdir /persist/display 0770 system graphics
+    mkdir /mnt/vendor/persist/display 0770 system graphics
 
     # Create vpp directory
     mkdir /mnt/vendor/persist/vpp 0770 media media
@@ -366,10 +366,10 @@ on post-fs-data
     mkdir /data/vendor/modem_config 0570 radio root
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-    # We chown/chmod /persist again so because mount is run as root + defaults
-    chown root system /persist
-    chmod 0771 /persist
-    chown system system /persist/WCNSS_qcom_wlan_nv.bin
+    # We chown/chmod /mnt/vendor/persist again so because mount is run as root + defaults
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    chown system system /mnt/vendor/persist/WCNSS_qcom_wlan_nv.bin
     chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
     chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
