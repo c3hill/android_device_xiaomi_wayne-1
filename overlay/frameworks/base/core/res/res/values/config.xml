@@ -22,10 +22,6 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- If true, the screen can be rotated via the accelerometer in all 4
-         rotations as the default behavior. -->
-     <bool name="config_allowAllRotations">false</bool>
-
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
      <bool name="config_automatic_brightness_available">true</bool>
@@ -34,17 +30,12 @@
      <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
     <!-- Whether camera shutter sound is forced or not  (country specific). -->
-     <bool name="config_camera_sound_forced">true</bool>
+     <bool name="config_camera_sound_forced">false</bool>
 
     <!-- Flag specifying whether VoLTE should be available for carrier: independent of
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
      <bool name="config_carrier_volte_available">true</bool>
-
-    <!-- Flag specifying whether WFC over IMS should be available for carrier: independent of
-         carrier provisioning. If false: hard disabled. If true: then depends on carrier
-         provisioning, availability etc -->
-     <bool name="config_carrier_wfc_ims_available">false</bool>
 
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
      <bool name="config_cellBroadcastAppLinks">true</bool>
@@ -58,9 +49,6 @@
     <!-- Flag specifying whether WFC over IMS is available on device -->
      <bool name="config_device_wfc_ims_available">true</bool>
 
-    <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
-     <bool name="config_displayBlanksAfterDoze">true</bool>
-
     <!-- If true, the doze component is not started until after the screen has been turned off
          and the screen off animation has been performed. -->
      <bool name="config_dozeAfterScreenOffByDefault">true</bool>
@@ -70,17 +58,6 @@
 
     <!--  Whether Multiuser UI should be shown -->
      <bool name="config_enableMultiUserUI">true</bool>
-
-    <!-- Whether to enable network location overlay which allows network
-         location provider to be replaced by an app at run-time. When disabled,
-         only the config_networkLocationProviderPackageName package will be
-         searched for network location provider, otherwise packages whose
-         signature matches the signatures of config_locationProviderPackageNames
-         will be searched, and the service with the highest version number will
-         be picked. Anyone who wants to disable the overlay mechanism can set it
-         to false.
-    -->
-     <bool name="config_enableNetworkLocationOverlay">false</bool>
 
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
@@ -94,12 +71,7 @@
          * The remote submix module "audio.r_submix.default" must be installed on the device.
          * The device must be provisioned with HDCP keys (for protected content).
     -->
-     <bool name="config_enableWifiDisplay">false</bool>
-
-    <!-- Whether the display cutout region of the main built-in display should be forced to
-         black in software (to avoid aliasing or emulate a cutout that is not physically existent).
-    -->
-     <bool name="config_fillMainBuiltInDisplayCutout">false</bool>
+     <bool name="config_enableWifiDisplay">true</bool>
 
     <!-- Is the device capable of hot swapping an ICC Card -->
      <bool name="config_hotswapCapable">true</bool>
@@ -113,7 +85,7 @@
      <bool name="config_lidControlsSleep">true</bool>
 
     <!-- Should the pinner service pin the Camera application? -->
-     <bool name="config_pinnerCameraApp">false</bool>
+     <bool name="config_pinnerCameraApp">true</bool>
 
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
@@ -144,7 +116,7 @@
          to maximize power savings but not all devices support it.
          Refer to power.h for details.
     -->
-     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
     <!-- Boolean indicating whether the HWC setColorTransform function can be performed efficiently in hardware. -->
      <bool name="config_setColorTransformAccelerated">true</bool>
@@ -160,10 +132,7 @@
      <bool name="config_supportAudioSourceUnprocessed">true</bool>
 
     <!-- Whether device supports double tap to wake -->
-     <bool name="config_supportDoubleTapWake">false</bool>
-
-    <!-- True if the device supports Sustained Performance Mode-->
-     <bool name="config_sustainedPerformanceModeSupported">false</bool>
+     <bool name="config_supportDoubleTapWake">true</bool>
 
     <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
      <bool name="config_swipe_up_gesture_setting_available">true</bool>
@@ -181,7 +150,7 @@
      <bool name="config_useDevInputEventForAudioJack">true</bool>
 
     <!-- Enable video pause workaround when enabling/disabling the camera. -->
-     <bool name="config_useVideoPauseWorkaround">false</bool>
+     <bool name="config_useVideoPauseWorkaround">true</bool>
 
     <!-- Set to true if the wifi display supports compositing content stored
          in gralloc protected buffers.  For this to be true, there must exist
@@ -204,9 +173,6 @@
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
      <bool name="config_wifi_dual_band_support">true</bool>
 
-    <!-- Boolean indicating whether single radio chain scan results are to be used for network selection -->
-     <bool name="config_wifi_framework_use_single_radio_chain_scan_results_network_selection">false</bool>
-
     <!-- Enable ACS (auto channel selection) for Wifi hotspot (SAP) -->
      <bool name="config_wifi_softap_acs_supported">true</bool>
 
@@ -216,29 +182,6 @@
     <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true-->
      <bool name="skip_restoring_network_selection">true</bool>
-
-    <!-- Height of the status bar -->
-     <dimen name="status_bar_height_portrait">24.0dip</dimen>
-
-    <!-- The maximum range of gamma adjustment possible using the screen
-         auto-brightness adjustment setting. -->
-     <fraction name="config_autoBrightnessAdjustmentMaxGamma">200.0%</fraction>
-
-    <!-- User activity timeout: Maximum screen dim duration as a percentage of screen off timeout.
-    
-         This resource is similar to config_maximumScreenDimDuration but the maximum
-         screen dim duration is defined as a ratio of the overall screen off timeout
-         instead of as an absolute value in milliseconds.  This is useful for reducing
-         the dim duration when the screen off timeout is very short.
-    
-         When computing the screen dim duration, the power manager uses the lesser
-         of the effective durations expressed by config_maximumScreenDimDuration and
-         config_maximumScreenDimRatio.
-    
-         This value must be between 0% and 100%.  If the value is zero, the screen will not
-         dim before the device goes to sleep.
-    -->
-     <fraction name="config_maximumScreenDimRatio">29.999996%</fraction>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -250,12 +193,6 @@
 
     <!-- Operating volatage for bluetooth controller. 0 by default-->
      <integer name="config_bluetooth_operating_voltage_mv">3300</integer>
-
-    <!-- Fast brightness animation ramp rate in brightness units per second-->
-     <integer name="config_brightness_ramp_rate_fast">4932</integer>
-
-    <!-- Slow brightness animation ramp rate in brightness units per second-->
-     <integer name="config_brightness_ramp_rate_slow">3946</integer>
 
     <!--  Maximum number of supported users -->
      <integer name="config_multiuserMaximumUsers">4</integer>
@@ -294,16 +231,6 @@
          The user is forbidden from setting the brightness below this level. -->
      <integer name="config_screenBrightnessSettingMinimum">15</integer>
 
-    <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
-     <integer name="config_shutdownBatteryTemperature">610</integer>
-
-    <!-- Integer parameters of the wifi to cellular handover feature
-         wifi should not stick to bad networks -->
-     <integer name="config_wifi_framework_wifi_score_bad_rssi_threshold_24GHz">-85</integer>
-     <integer name="config_wifi_framework_wifi_score_bad_rssi_threshold_5GHz">-82</integer>
-     <integer name="config_wifi_framework_wifi_score_low_rssi_threshold_24GHz">-73</integer>
-     <integer name="config_wifi_framework_wifi_score_low_rssi_threshold_5GHz">-70</integer>
-
     <!-- ComponentName of a dream to show whenever the system would otherwise have
          gone to sleep.  When the PowerManager is asked to go to sleep, it will instead
          try to start this dream if possible.  The dream should typically call startDozing()
@@ -312,23 +239,23 @@
          Specify the component name or an empty string if none.
          Note that doze dreams are not subject to the same start conditions as ordinary dreams.
          Doze dreams will run whenever the power manager is in a dozing state. -->
-     <string name="config_dozeComponent">com.android.systemui/com.android.keyguard.doze.DozeService</string>
-
-    <!-- Regex of wired ethernet ifaces -->
-     <string name="config_ethernet_iface_regex">eth\\d</string>
+     <string name="config_dozeComponent" translatable="false">com.android.systemui/com.android.keyguard.doze.DozeService</string>
 
     <!-- ImsService package name to bind to by default, if config_dynamic_bind_ims is true -->
-     <string name="config_ims_package">org.codeaurora.ims</string>
+     <string name="config_ims_package" translatable="false">org.codeaurora.ims</string>
 
     <!-- MMS user agent string -->
-     <string name="config_mms_user_agent">Android-Mms/2.0</string>
+     <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
+
+    <!-- MMS user agent prolfile url -->
+     <string name="config_mms_user_agent_profile_url" translatable="false">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
     <!--  Define Google play service package for FRP-->
-     <string name="config_persistentDataPackageName">com.google.android.gms</string>
+     <string name="config_persistentDataPackageName" translatable="false">com.google.android.gms</string>
 
     <!-- Configure wifi tcp buffersizes in the form:
          rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
-     <string name="config_wifi_tcp_buffers">524288,1048576,4194304,262144,524288,3670016</string>
+     <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,4194304,262144,524288,3670016</string>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
          in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
@@ -494,7 +421,7 @@
     </integer-array>
 
     <!-- Default list of files pinned by the Pinner Service -->
-    <string-array name="config_defaultPinnerServiceFiles">
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>/data/dalvik-cache/arm64/system@framework@boot.oat</item>
         <item>/data/dalvik-cache/arm/system@framework@boot.oat</item>
         <item>/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex</item>
@@ -516,24 +443,11 @@
         <item>/system/lib64/libblas.so</item>
     </string-array>
 
-    <!-- Values for GPS configuration -->
-    <string-array name="config_gpsParameters">
-        <item>SUPL_HOST=supl.qxwz.com</item>
-        <item>SUPL_PORT=7275</item>
-        <item>SUPL_VER=0x20000</item>
-        <item>SUPL_MODE=1</item>
-        <item>SUPL_ES=0</item>
-        <item>LPP_PROFILE=0</item>
-        <item>USE_EMERGENCY_PDN_FOR_EMERGENCY_SUPL=1</item>
-        <item>A_GLONASS_POS_PROTOCOL_SELECT=0</item>
-        <item>GPS_LOCK=0</item>
-    </string-array>
-
     <!-- Configure mobile tcp buffer sizes in the form:
          rat-name:rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max
          If no value is found for the rat-name in use, the system default will be applied.
     -->
-    <string-array name="config_mobile_tcp_buffers">
+    <string-array translatable="false" name="config_mobile_tcp_buffers">
         <item>5gnr:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
         <item>lte_ca:4096,6291456,12582912,4096,1048576,2097152</item>
@@ -550,7 +464,7 @@
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
          should be empty. -->
-    <string-array name="config_tether_bluetooth_regexs">
+    <string-array translatable="false" name="config_tether_bluetooth_regexs">
         <item>bnep\\d</item>
         <item>bt-pan</item>
     </string-array>
@@ -564,7 +478,7 @@
          Wigig is 192.168.50.1 and 255.255.255.0
          Wigig P2P is 192.168.51.1 and 255.255.255.0
     -->
-    <string-array name="config_tether_dhcp_range">
+    <string-array translatable="false" name="config_tether_dhcp_range">
         <item>192.168.42.2</item>
         <item>192.168.42.254</item>
         <item>192.168.43.2</item>
@@ -590,7 +504,7 @@
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          USB interfaces.  If the device doesn't want to support tething over USB this should
          be empty.  An example would be "usb.*" -->
-    <string-array name="config_tether_usb_regexs">
+    <string-array translatable="false" name="config_tether_usb_regexs">
         <item>usb\\d</item>
         <item>rndis\\d</item>
     </string-array>
@@ -598,7 +512,7 @@
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
-    <string-array name="config_tether_wifi_regexs">
+    <string-array translatable="false" name="config_tether_wifi_regexs">
         <item>wigig0</item>
         <item>softap0</item>
     </string-array>
@@ -609,7 +523,7 @@
          before automatically restore the default connection.  Set -1 if the connection
          does not require auto-restore. -->
     <!-- the 6th element indicates boot-time dependency-met value. -->
-    <string-array name="networkAttributes">
+    <string-array translatable="false" name="networkAttributes">
         <item>wifi,1,1,1,-1,true</item>
         <item>mobile,0,0,0,-1,true</item>
         <item>mobile_mms,2,0,4,300000,true</item>
@@ -628,7 +542,7 @@
          based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
                   [# simultaneous connection types]"  -->
-    <string-array name="radioAttributes">
+    <string-array translatable="false" name="radioAttributes">
         <item>1,1</item>
         <item>0,1</item>
         <item>7,1</item>
