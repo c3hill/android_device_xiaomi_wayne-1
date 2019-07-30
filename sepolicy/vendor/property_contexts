@@ -5,7 +5,10 @@ persist.sys.fp.                     u:object_r:fingerprint_prop:s0
 persist.vendor.sys.fp.              u:object_r:fingerprint_prop:s0
 sys.fp.                             u:object_r:fingerprint_prop:s0
 
-persist.sys.ifaa                    u:object_r:ifaa_prop:s0
+persist.vendor.sys.pay.fido         u:object_r:mlipay_prop:s0
+persist.vendor.sys.pay.ifaa         u:object_r:mlipay_prop:s0
+persist.vendor.sys.pay.soter        u:object_r:mlipay_prop:s0
+persist.vendor.sys.provision.status u:object_r:mlipay_prop:s0
 
 persist.sys.thermal.                u:object_r:thermal_engine_prop:s0
 sys.thermal.                        u:object_r:thermal_engine_prop:s0

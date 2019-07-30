@@ -1,2 +1,2 @@
 type thermal_engine_prop, property_type;
-type ifaa_prop, property_type;
+type mlipay_prop, property_type;

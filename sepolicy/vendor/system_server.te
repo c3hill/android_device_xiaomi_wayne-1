@@ -2,3 +2,5 @@ allow system_server sysfs_vibrator:file read;
 
 r_dir_file(system_server, idc_file);
 r_dir_file(system_server, keylayout_file);
+
+add_service(system_app, goodix_fingerprint_hwservice)
