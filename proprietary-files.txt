@@ -1494,10 +1494,10 @@ vendor/lib64/libtime_genoff.so
 
 # Wfd - from wayne - PKQ1.180904.001.V10.3.4.0.PDCCNXM
 bin/wfdservice
-etc/init/wfdservice.rc
-etc/wfdconfig.xml
-etc/wfdconfigsink.xml
--framework/WfdCommon.jar
+etc/init/wfdservice.rc|311bfdd1675e56499662f39455536b75b78477bb
+etc/wfdconfig.xml|8d5cfe06bdc8fc14b83ed10435b24f47639361cb
+etc/wfdconfigsink.xml|f180a45f69fa2ff01dbaf98c905cff1e9eba903e
+-framework/WfdCommon.jar|2bef5df8b446a35ab0fda53e48e3874d793845ea
 lib/com.qualcomm.qti.wifidisplayhal@1.0.so
 lib/extractors/libmmparser.so
 lib/libFileMux.so
@@ -1530,7 +1530,7 @@ lib64/libmmrtpdecoder.so
 lib64/libmmrtpencoder.so
 lib64/libwfdclient.so
 lib64/libwfdnative.so
--priv-app/WfdService/WfdService.apk
+-priv-app/WfdService/WfdService.apk|2963f350b12086bb94d4348eba9c94a6228e5717
 vendor/bin/wifidisplayhalservice
 vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
 vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
